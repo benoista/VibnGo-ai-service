@@ -4,6 +4,7 @@ import httpx
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
+from src.vectorizer import create_user_vector
 
 load_dotenv()
 
@@ -16,11 +17,21 @@ app = FastAPI(title="VibnGo AI Service")
 class ChatRequest(BaseModel):
     prompt: str
 
+class ProfileRequest(BaseModel):
+    responses: dict[int, str]
+
 
 @app.get("/health")
 def health():
     return {"status": "ok"}
 
+@app.post("/profile/vector")
+def create_profile_vector(request: ProfileRequest):
+    vector = create_user_vector(request.responses)
+
+    return {
+        "vector": vector
+    }
 
 @app.post("/chat")
 async def chat(request: ChatRequest):
