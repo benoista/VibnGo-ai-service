@@ -1,0 +1,41 @@
+TRAVELER_PROFILES = {
+    "Explorateur Aventurier": {
+        "description": "Vous aimez explorer, bouger et vivre des expériences hors des sentiers battus.",
+        "vector": [-0.33, 1.0, -0.66, 0.33, -0.66, -1.0]
+    },
+
+    "Explorateur Urbain": {
+        "description": "Vous aimez découvrir des villes dynamiques tout en recherchant des expériences locales.",
+        "vector": [1.0, 0.66, 0.0, 0.33, 0.33, -0.66]
+    },
+
+    "Aventurier Nature": {
+        "description": "Vous aimez les grands espaces, les activités et les expériences en pleine nature.",
+        "vector": [-1.0, 1.0, -0.66, 0.0, -0.66, -0.66]
+    },
+
+    "Globe-trotter Social": {
+        "description": "Vous aimez voyager, faire des rencontres et partager de nouvelles expériences.",
+        "vector": [0.33, 0.66, -0.33, 1.0, 0.0, -0.33]
+    },
+
+    "Voyageur Épicurien": {
+        "description": "Vous aimez voyager confortablement tout en profitant des plaisirs de chaque destination.",
+        "vector": [0.33, 0.0, 0.33, 0.33, 1.0, -0.33]
+    },
+
+    "Voyageur Zen": {
+        "description": "Vous aimez voyager à votre rythme dans des environnements calmes et reposants.",
+        "vector": [-0.66, -1.0, -0.33, -0.33, 0.33, -0.33]
+    },
+
+    "Voyageur Organisé": {
+        "description": "Vous aimez anticiper et organiser votre voyage pour profiter sereinement de chaque étape.",
+        "vector": [0.33, 0.33, 1.0, 0.0, 0.66, 0.66]
+    },
+
+    "Explorateur Authentique": {
+        "description": "Vous aimez découvrir la culture locale et explorer des lieux loin des circuits touristiques.",
+        "vector": [-0.33, -0.33, -0.66, 0.33, -0.33, -1.0]
+    }
+}

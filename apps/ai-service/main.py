@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
 from src.vectorizer import create_user_vector
+from src.similarity import find_traveler_profile
 
 load_dotenv()
 
@@ -28,9 +29,11 @@ def health():
 @app.post("/profile/vector")
 def create_profile_vector(request: ProfileRequest):
     vector = create_user_vector(request.responses)
+    traveler_profile = find_traveler_profile(vector)
 
     return {
-        "vector": vector
+        "vector": vector,
+        "traveler_profile": traveler_profile
     }
 
 @app.post("/chat")
