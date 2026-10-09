@@ -1,6 +1,7 @@
 import os
-
 import httpx
+from src.traveler_profiles import TRAVELER_PROFILES
+from src.questionnaire import QUESTIONS
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -46,3 +47,18 @@ async def chat(request: ChatRequest):
         )
         response.raise_for_status()
         return response.json()
+
+@app.get("/profiles")
+def get_traveler_profiles():
+    return [
+        {
+            "code": profile_code,
+            "name": profile_data["name"],
+            "description": profile_data["description"]
+        }
+        for profile_code, profile_data in TRAVELER_PROFILES.items()
+    ]
+
+@app.get("/profile/questions")
+def get_profile_questions():
+    return QUESTIONS

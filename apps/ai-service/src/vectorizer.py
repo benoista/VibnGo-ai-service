@@ -1,5 +1,14 @@
 from src.questionnaire import QUESTIONS
 
+DIMENSIONS = [
+    "urbanite",
+    "intensite",
+    "planification",
+    "social",
+    "confort",
+    "decouverte"
+]
+
 ANSWER_VALUES = {
     "A": 1.0,
     "B": 0.33,
@@ -9,12 +18,8 @@ ANSWER_VALUES = {
 
 def create_user_vector(responses):
     dimensions = {
-        "urbanite": [],
-        "intensite": [],
-        "planification": [],
-        "social": [],
-        "confort": [],
-        "decouverte": []
+        dimension: []
+        for dimension in DIMENSIONS
     }
 
     for question in QUESTIONS:
@@ -29,7 +34,6 @@ def create_user_vector(responses):
             )
 
         value = ANSWER_VALUES[answer]
-
         dimensions[dimension].append(value)
 
     user_profile = {}
@@ -38,12 +42,8 @@ def create_user_vector(responses):
         user_profile[dimension] = sum(values) / len(values)
 
     user_vector = [
-        user_profile["urbanite"],
-        user_profile["intensite"],
-        user_profile["planification"],
-        user_profile["social"],
-        user_profile["confort"],
-        user_profile["decouverte"]
+        user_profile[dimension]
+        for dimension in DIMENSIONS
     ]
 
     return user_vector
